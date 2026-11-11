@@ -4,8 +4,7 @@ import Link from "next/link";
 import Reveal from "./Reveal";
 import { iconFor } from "@/lib/serviceIcons";
 import { BTN_GHOST, BTN_PRIMARY, Icon, SECTION, SectionHead } from "./ui";
-import { Offices } from "./MoreSections";
-import { about, clinic, services, servicesIntro, stats } from "@/lib/content";
+import { about, clinic, services, waLink, servicesIntro, stats } from "@/lib/content";
 
 export function Stats() {
   return (
@@ -29,7 +28,7 @@ export function About() {
         <Reveal>
           <div className="relative aspect-[4/5] overflow-hidden rounded-[32px] border border-line">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/doctor.svg" alt={about.doctor.name} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+            <img src="/dr-shalu.png" alt={about.doctor.name} loading="lazy" className="absolute inset-0 h-full w-full object-cover object-top" />
             <div className="absolute inset-x-5 bottom-5 rounded-2xl bg-white/90 p-4 shadow-sm backdrop-blur">
               <div className="font-bold">{about.doctor.name}</div>
               <div className="text-sm text-muted">{about.doctor.role}</div>
@@ -95,7 +94,7 @@ export function Contact() {
   const input = "w-full rounded-2xl border border-line bg-white px-4 py-3.5 outline-none transition-shadow focus:ring-2 focus:ring-brand";
   return (
     <section id="contact" className={SECTION}>
-      <SectionHead eyebrow="Contact us" title="Schedule your complimentary consultation." intro="Send us a message and we will confirm your appointment within one working day." />
+      <SectionHead eyebrow="Contact us" title="Schedule your complimentary consultation." intro="Send us your details and we will confirm your appointment on WhatsApp." />
       <Reveal delay={150} className="mt-8 flex flex-wrap justify-center gap-3">
         <a href="#contact-form" className={BTN_PRIMARY}>Request appointment</a>
         <a href={`tel:${clinic.phone.replace(/[^+\d]/g, "")}`} className={BTN_GHOST}>Call {clinic.phone}</a>
@@ -103,13 +102,24 @@ export function Contact() {
 
       <div id="contact-form" className="mt-14 grid gap-6 lg:grid-cols-5">
         <Reveal className="lg:col-span-3">
-          <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="h-full rounded-[32px] border border-line bg-white p-6 shadow-sm sm:p-8">
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            const f = new FormData(e.currentTarget);
+            const v = (k: string) => String(f.get(k) ?? "").trim();
+            const lines = [`Name: ${v("name")}`, `Phone: ${v("phone")}`];
+            if (v("email")) lines.push(`Email: ${v("email")}`);
+            if (v("service")) lines.push(`Service: ${v("service")}`);
+            if (v("message")) lines.push(`Message: ${v("message")}`);
+            window.open(waLink(lines), "_blank", "noopener");
+            setSent(true);
+          }} className="h-full rounded-[32px] border border-line bg-white p-6 shadow-sm sm:p-8">
             {sent ? (
               <div className="grid h-full place-items-center py-16 text-center">
                 <div>
                   <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-mint text-brand-dark"><Icon name="check" /></div>
                   <h3 className="text-2xl font-extrabold">Thank you!</h3>
-                  <p className="mt-2 text-muted">We will get back to you shortly.</p>
+                  <p className="mt-2 text-muted">WhatsApp has opened with your details. Just press send and we will confirm your appointment.</p>
+                  <a href={waLink()} target="_blank" rel="noreferrer" className="mt-4 inline-block text-sm font-bold text-brand-dark">WhatsApp did not open? Tap here</a>
                 </div>
               </div>
             ) : (
@@ -136,23 +146,23 @@ export function Contact() {
                 <li key={d} className="flex justify-between gap-4"><span>{d}</span><span>{t}</span></li>
               ))}
             </ul>
-            <a href={`https://wa.me/${clinic.whatsapp}`} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full bg-[#25D366] px-5 py-2.5 font-semibold text-white transition-transform hover:scale-105">
+            <a href={waLink()} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full bg-[#25D366] px-5 py-2.5 font-semibold text-white transition-transform hover:scale-105">
               Chat on WhatsApp
             </a>
           </Reveal>
           <Reveal delay={160} className="min-h-60 overflow-hidden rounded-[32px] border border-line bg-mint">
             <iframe
               title="Clinic location map"
-              src={`https://maps.google.com/maps?q=${encodeURIComponent(clinic.mapQuery)}&z=14&output=embed`}
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(clinic.mapQuery)}&z=15&output=embed`}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="h-full min-h-60 w-full border-0"
             />
+            <a href={clinic.mapLink} target="_blank" rel="noreferrer" className="block bg-white px-5 py-3 text-center text-sm font-bold text-brand-dark">Open in Google Maps ↗</a>
           </Reveal>
         </div>
       </div>
 
-      <Offices />
     </section>
   );
 }
@@ -174,7 +184,7 @@ export function Footer() {
         <div>
           <h4 className={head}>Explore</h4>
           <ul className={col}>
-            {[["Home", "/#home"], ["About", "/#about"], ["Services", "/#services"], ["Our team", "/#team"], ["FAQ", "/#faq"], ["Contact", "/#contact"]].map(([l, h]) => (
+            {[["Home", "/#home"], ["About", "/#about"], ["Services", "/#services"], ["FAQ", "/#faq"], ["Contact", "/#contact"]].map(([l, h]) => (
               <li key={h}><Link href={h} className="transition-colors hover:text-white">{l}</Link></li>
             ))}
           </ul>

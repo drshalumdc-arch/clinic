@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import { Footer } from "@/components/Sections";
 import { BTN_GHOST, BTN_PRIMARY } from "@/components/ui";
-import { clinic, serviceMore, services } from "@/lib/content";
+import { clinic, serviceMore, services, waLink } from "@/lib/content";
 import { iconFor } from "@/lib/serviceIcons";
 
 export function generateStaticParams() {
@@ -63,7 +63,7 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
           <h2 className="text-2xl font-extrabold">Ready to book {s.title}?</h2>
           <p className="mt-2 text-muted">Send us a message and we will confirm your appointment.</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link href="/#contact" className={BTN_PRIMARY}>Book appointment</Link>
+            <a href={waLink([`Service: ${s.title}`])} target="_blank" rel="noreferrer" className={BTN_PRIMARY}>Book on WhatsApp</a>
             <a href={`tel:${clinic.phone.replace(/[^+\d]/g, "")}`} className={BTN_GHOST}>Call {clinic.phone}</a>
           </div>
         </div>

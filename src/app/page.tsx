@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav";
 import MorphHero from "@/components/MorphHero";
 import { About, Contact, Footer, Services, Stats } from "@/components/Sections";
-import { Awards, BeforeAfter, Faq, LifeStages, Team, Technology, WhyUs } from "@/components/MoreSections";
+import { Awards, BeforeAfter, Faq, LifeStages, Technology, WhyUs } from "@/components/MoreSections";
 
 export default function Home() {
   return (
@@ -14,7 +14,6 @@ export default function Home() {
       <LifeStages />
       <Services />
       <Technology />
-      <Team />
       <Awards />
       <BeforeAfter />
       <Faq />

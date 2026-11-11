@@ -1,12 +1,13 @@
 // All dummy content lives here — edit freely.
 export const clinic = {
   name: "Dr Shalu's Multispeciality Dental Clinic",
-  phone: "+1 (555) 012-3456",
-  whatsapp: "15550123456",
-  email: "hello@brightsmile.example",
-  address: "128 Maple Street, Springfield, USA",
+  phone: "+91 97781 10545",
+  whatsapp: "919778110545",
+  email: "drshalumdc@gmail.com",
+  address: "Chettukuzhi, Vandanmedu, Kerala 685551",
   // Dummy map location — replace with the real clinic address.
-  mapQuery: "Times Square, New York",
+  mapQuery: "Dr Shalu's Multi-speciality Dental Clinic, Chettukuzhi, Vandanmedu, Kerala 685551",
+  mapLink: "https://share.google/Sa64buiw9PIXH5T2Z",
   hours: [
     ["Mon – Fri", "9:00 am – 7:00 pm"],
     ["Saturday", "9:00 am – 3:00 pm"],
@@ -40,7 +41,7 @@ export const about = {
     "Dr Shalu's Multispeciality Dental Clinic was founded with one idea: dental visits should be calm, clear and comfortable. Our team takes the time to explain every step, so you always know what to expect.",
     "From routine check-ups to complete smile makeovers, we combine modern equipment with a gentle touch for results you can feel confident about.",
   ],
-  doctor: { name: "Dr. Emily Carter", role: "Founder & Lead Dentist, DDS" },
+  doctor: { name: "Dr. Shalu", role: "Founder & Lead Dentist" },
   values: [
     { title: "Gentle", text: "Pain-free techniques and a patient-first approach." },
     { title: "Transparent", text: "Clear plans and honest pricing, no surprises." },
@@ -176,3 +177,10 @@ export const serviceMore: Record<string, string> = {
   ortho: "Orthodontic treatment straightens teeth and corrects bite problems using braces or other appliances. A well-aligned bite is easier to clean and more comfortable to use, as well as better looking. We build a plan suited to your age and goals.",
   smile: "Smile designing brings together treatments such as whitening, veneers, crowns and alignment into one plan, shaped around your face, lips and personality. We discuss what you would like to change, then guide you step by step towards it.",
 };
+
+// Every WhatsApp message starts with this common greeting.
+export const waGreeting = `Hello ${clinic.name}! 👋 I would like to book an appointment.`;
+export function waLink(details: string[] = []) {
+  const text = [waGreeting, ...details].join("\n");
+  return `https://wa.me/${clinic.whatsapp}?text=${encodeURIComponent(text)}`;
+}

@@ -2,7 +2,7 @@
 import { useRef, useState } from "react";
 import Reveal from "./Reveal";
 import { BTN_GHOST, BTN_PRIMARY, Icon, SECTION, SectionHead } from "./ui";
-import { awards, beforeAfter, faqs, offices, stages, team, tech, why } from "@/lib/content";
+import { awards, beforeAfter, faqs, stages, tech, why } from "@/lib/content";
 
 /* ───────── Why choose us ───────── */
 export function WhyUs() {
@@ -77,47 +77,6 @@ export function Technology() {
             </Reveal>
           ))}
         </ul>
-      </div>
-    </section>
-  );
-}
-
-/* ───────── Team ───────── */
-function Portrait({ skin, hair, top }: { skin: string; hair: string; top: string }) {
-  return (
-    <svg viewBox="0 0 400 440" className="h-full w-full" role="img" aria-label="Dummy dentist portrait">
-      <rect width="400" height="440" fill="#e6f5f3" />
-      <circle cx="330" cy="80" r="64" fill="#fff" opacity=".4" />
-      <path d="M40 440 C40 350 90 305 200 296 C310 305 360 350 360 440Z" fill="#fff" />
-      <path d="M150 300 L200 380 L250 300 C230 290 170 290 150 300Z" fill={top} />
-      <rect x="175" y="245" width="50" height="62" rx="20" fill={skin} />
-      <ellipse cx="200" cy="185" rx="68" ry="80" fill={skin} />
-      <path d="M130 178 C124 100 170 72 204 74 C246 74 280 104 270 178 C264 138 238 118 200 118 C166 118 138 138 130 178Z" fill={hair} />
-      <ellipse cx="173" cy="184" rx="6" ry="7" fill="#0e2a33" />
-      <ellipse cx="227" cy="184" rx="6" ry="7" fill="#0e2a33" />
-      <path d="M200 192 Q195 212 202 216" fill="none" stroke="#0003" strokeWidth="4" strokeLinecap="round" />
-      <path d="M170 230 Q200 258 230 230 Q200 242 170 230Z" fill="#fff" stroke="#c97b6a" strokeWidth="3" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-export function Team() {
-  return (
-    <section id="team" className={SECTION}>
-      <SectionHead eyebrow={team.eyebrow} title={team.title} intro={team.intro} />
-      <div className="mt-14 grid gap-6 md:grid-cols-3">
-        {team.people.map((p, i) => (
-          <Reveal key={p.name} delay={i * 80} className="group">
-            <div className="aspect-[10/11] overflow-hidden rounded-[32px] border border-line">
-              <div className="h-full w-full transition-transform duration-500 ease-out group-hover:scale-105">
-                <Portrait skin={p.skin} hair={p.hair} top={p.top} />
-              </div>
-            </div>
-            <h3 className="mt-5 text-xl font-extrabold">{p.name}</h3>
-            <p className="mt-1 text-sm font-semibold text-brand-dark">{p.role}</p>
-            <p className="mt-1 text-muted">{p.note}</p>
-          </Reveal>
-        ))}
       </div>
     </section>
   );
@@ -228,17 +187,3 @@ export function Faq() {
   );
 }
 
-/* ───────── Offices ───────── */
-export function Offices() {
-  return (
-    <div className="mt-6 grid gap-4 md:grid-cols-3">
-      {offices.map((o, i) => (
-        <Reveal key={o.city} delay={i * 70} className="rounded-[28px] border border-line bg-white p-6">
-          <h3 className="text-lg font-extrabold">{o.city}</h3>
-          <p className="mt-2 text-muted">{o.address}</p>
-          <p className="mt-1 font-semibold text-brand-dark">{o.phone}</p>
-        </Reveal>
-      ))}
-    </div>
-  );
-}
