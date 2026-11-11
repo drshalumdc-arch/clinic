@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Dummy doctor portrait">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6f5f3"/>
+      <stop offset="1" stop-color="#a9e0da"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg)"/>
+  <circle cx="320" cy="90" r="70" fill="#ffffff" opacity=".35"/>
+  <circle cx="60" cy="200" r="40" fill="#ffffff" opacity=".25"/>
+  <!-- coat -->
+  <path d="M40 500 C40 400 90 350 200 340 C310 350 360 400 360 500 Z" fill="#ffffff"/>
+  <!-- scrubs v-neck -->
+  <path d="M150 345 L200 430 L250 345 C230 335 170 335 150 345 Z" fill="#2bb7b0"/>
+  <!-- coat lapels -->
+  <path d="M150 345 L195 440 L160 500 L100 500 C100 430 115 375 150 345 Z" fill="#f1f5f5"/>
+  <path d="M250 345 L205 440 L240 500 L300 500 C300 430 285 375 250 345 Z" fill="#f1f5f5"/>
+  <!-- stethoscope -->
+  <path d="M135 360 C125 420 150 450 185 440" fill="none" stroke="#0e2a33" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="188" cy="440" r="9" fill="#0e2a33"/>
+  <!-- neck -->
+  <rect x="175" y="285" width="50" height="70" rx="20" fill="#e7b48f"/>
+  <!-- head -->
+  <ellipse cx="200" cy="215" rx="72" ry="85" fill="#f0c4a2"/>
+  <!-- hair -->
+  <path d="M126 205 C120 120 170 90 205 92 C250 92 285 125 274 205 C268 160 240 140 200 140 C165 140 135 160 126 205 Z" fill="#3b2a22"/>
+  <!-- ears -->
+  <ellipse cx="128" cy="220" rx="10" ry="16" fill="#e7b48f"/>
+  <ellipse cx="272" cy="220" rx="10" ry="16" fill="#e7b48f"/>
+  <!-- eyes -->
+  <ellipse cx="172" cy="213" rx="6" ry="7" fill="#0e2a33"/>
+  <ellipse cx="228" cy="213" rx="6" ry="7" fill="#0e2a33"/>
+  <path d="M158 196 Q172 188 186 196 M214 196 Q228 188 242 196" fill="none" stroke="#3b2a22" stroke-width="4" stroke-linecap="round"/>
+  <!-- nose -->
+  <path d="M200 220 Q194 242 202 246" fill="none" stroke="#d9a07c" stroke-width="4" stroke-linecap="round"/>
+  <!-- smile -->
+  <path d="M168 262 Q200 292 232 262 Q200 274 168 262 Z" fill="#ffffff" stroke="#c97b6a" stroke-width="3" stroke-linejoin="round"/>
+</svg>
