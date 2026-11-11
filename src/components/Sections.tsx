@@ -131,7 +131,7 @@ export function Contact() {
                   <option value="" disabled>Choose a service</option>
                   {services.map((s) => <option key={s.id}>{s.title}</option>)}
                 </select>
-                <textarea name="message" rows={4} placeholder="Anything we should know?" className={`${input} sm:col-span-2`} />
+                <textarea name="message" rows={4} placeholder="Anything we should know? (optional)" className={`${input} sm:col-span-2`} />
                 <button className={`${BTN_PRIMARY} sm:col-span-2`}>Request appointment</button>
               </div>
             )}
