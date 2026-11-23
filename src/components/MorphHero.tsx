@@ -80,6 +80,9 @@ export default function MorphHero() {
   const intro = useRef<HTMLDivElement>(null);
   const caps = useRef<(HTMLParagraphElement | null)[]>([]);
   const hint = useRef<HTMLDivElement>(null);
+  const decor = useRef<HTMLDivElement>(null);
+  const glow = useRef<HTMLDivElement>(null);
+  const shine = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -125,6 +128,11 @@ export default function MorphHero() {
         io.style.opacity = String(o);
         io.style.transform = `translate3d(0,${(1 - o) * -40}px,0)`;
         if (hint.current) hint.current.style.opacity = String(o);
+        if (decor.current) decor.current.style.opacity = String(o);
+
+        const sh = trap(p, 3.2, 3.8, 4.3, 4.4);
+        if (shine.current) shine.current.style.opacity = String(sh);
+        if (glow.current) glow.current.style.opacity = String(sh);
 
         const c = [trap(p, 0.7, 1.0, 1.3, 1.6), trap(p, 2.0, 2.3, 2.7, 2.95), trap(p, 3.3, 3.55, 4.0, 4.2)];
         c.forEach((v, n) => {
@@ -169,6 +177,14 @@ export default function MorphHero() {
         {/* soft backdrop */}
         <div className="absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,#e6f5f3_0%,#fafaf8_70%)]" />
 
+        <HeroDecor innerRef={decor} />
+
+        <div
+          ref={glow}
+          className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-2xl"
+          style={{ width: "calc(min(85vw,64svh) * 1.5)", height: "calc(min(85vw,64svh) * 1.5)", background: "radial-gradient(closest-side, rgba(43,183,176,.55), rgba(43,183,176,.18) 60%, transparent)" }}
+        />
+
         {/* shape-clipped media */}
         <div
           ref={clip}
@@ -184,13 +200,15 @@ export default function MorphHero() {
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
             />
           ) : (
             <PlaceholderArt />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
         </div>
+
+        <ToothShine innerRef={shine} />
 
         {/* intro text */}
         <div
@@ -242,6 +260,98 @@ function PlaceholderArt() {
       <div className="blob absolute -left-[10%] top-[5%] h-[70%] w-[55%] rounded-full bg-white/25 blur-3xl" />
       <div className="blob absolute -right-[5%] bottom-[0%] h-[60%] w-[50%] rounded-full bg-[#0e2a33]/40 blur-3xl [animation-delay:-5s]" />
       <div className="blob absolute left-[35%] top-[30%] h-[40%] w-[35%] rounded-full bg-[#c9fff4]/40 blur-3xl [animation-delay:-9s]" />
+    </div>
+  );
+}
+
+function Tooth({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} aria-hidden>
+      <path d={TOOTH} fill="currentColor" />
+    </svg>
+  );
+}
+
+function Sparkle({ className, style }: { className?: string; style?: React.CSSProperties }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} style={style} aria-hidden>
+      <path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z" fill="currentColor" />
+    </svg>
+  );
+}
+
+function HeroDecor({ innerRef }: { innerRef: React.RefObject<HTMLDivElement | null> }) {
+  return (
+    <div ref={innerRef} className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+      {/* twinkling stars across the top */}
+      {STARS.map(([x, y, z, d], i) => (
+        <Sparkle key={i} className="twinkle absolute text-brand" style={{ left: x + "%", top: y + "%", width: z, height: z, animationDelay: "-" + d + "s" }} />
+      ))}
+
+      {/* soft glow + concentric rings */}
+      <div className="absolute left-1/2 top-[62%] h-[70vmax] w-[70vmax] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,#bfeee8_0%,#e6f5f3_45%,transparent_75%)] opacity-80" />
+      {[38, 56, 76].map((d) => (
+        <div
+          key={d}
+          className="absolute left-1/2 top-[62%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand/20"
+          style={{ width: `${d}vmax`, height: `${d}vmax` }}
+        />
+      ))}
+
+      {/* floating teeth */}
+      <Tooth className="float-slow absolute left-[7%] top-[46%] h-20 w-20 -rotate-12 text-brand/25 sm:h-28 sm:w-28" />
+      <Tooth className="float-slow absolute right-[8%] top-[40%] h-24 w-24 rotate-12 text-brand/20 [animation-delay:-3s] sm:h-36 sm:w-36" />
+      <Tooth className="float-slow absolute left-[22%] top-[60%] hidden h-12 w-12 rotate-6 text-brand-dark/20 [animation-delay:-6s] sm:block" />
+      <Tooth className="float-slow absolute right-[24%] top-[58%] hidden h-14 w-14 -rotate-6 text-brand-dark/15 [animation-delay:-8s] sm:block" />
+
+      {/* sparkles */}
+      <Sparkle className="twinkle absolute left-[16%] top-[36%] h-5 w-5 text-brand" />
+      <Sparkle className="twinkle absolute right-[17%] top-[33%] h-7 w-7 text-brand [animation-delay:-1.2s]" />
+      <Sparkle className="twinkle absolute left-[30%] top-[55%] h-4 w-4 text-brand-dark [animation-delay:-2.4s]" />
+      <Sparkle className="twinkle absolute right-[30%] top-[52%] h-4 w-4 text-brand-dark [animation-delay:-3.1s]" />
+
+      {/* trust chips */}
+      <div className="float-slow absolute left-[5%] top-[62%] hidden items-center gap-3 rounded-2xl border border-white/80 bg-white/80 px-4 py-3 shadow-xl shadow-brand/10 backdrop-blur md:flex lg:left-[12%]">
+        <span className="grid h-10 w-10 place-items-center rounded-full bg-mint text-lg text-brand-dark">★</span>
+        <span className="leading-tight"><b className="block text-lg">4.9</b><span className="text-xs text-muted">Average rating</span></span>
+      </div>
+      <div className="float-slow absolute right-[5%] top-[60%] hidden items-center gap-3 rounded-2xl border border-white/80 bg-white/80 px-4 py-3 shadow-xl shadow-brand/10 backdrop-blur [animation-delay:-4s] md:flex lg:right-[12%]">
+        <span className="grid h-10 w-10 place-items-center rounded-full bg-mint text-lg text-brand-dark">☺</span>
+        <span className="leading-tight"><b className="block text-lg">12k+</b><span className="text-xs text-muted">Happy patients</span></span>
+      </div>
+
+      {/* wave at the bottom */}
+      <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="absolute inset-x-0 bottom-0 h-[30%] w-full">
+        <path d="M0 120 C240 40 480 40 720 110 C960 180 1200 180 1440 90 L1440 200 L0 200 Z" fill="#2bb7b0" fillOpacity="0.10" />
+        <path d="M0 150 C260 90 520 100 760 150 C1000 200 1220 190 1440 140 L1440 200 L0 200 Z" fill="#2bb7b0" fillOpacity="0.12" />
+      </svg>
+    </div>
+  );
+}
+
+// [left %, top %, size px, animation delay s]
+const STARS: [number, number, number, number][] = [
+  [6, 12, 14, 0.2], [14, 5, 22, 1.4], [23, 16, 10, 2.6], [31, 4, 16, 0.8], [40, 12, 9, 3.1],
+  [58, 5, 12, 1.9], [66, 15, 18, 0.5], [75, 4, 10, 2.2], [83, 13, 24, 1.1], [92, 6, 14, 2.9],
+  [96, 22, 10, 0.3], [3, 28, 12, 1.7], [19, 30, 8, 2.4], [80, 30, 9, 3.4],
+];
+
+// Sparkles + gleam that appear around the tooth shape. Positions are in units of the tooth size.
+const SHINE: [number, number, number, number][] = [
+  [0.3, -0.36, 56, 0], [-0.4, -0.3, 30, 0.9], [0.5, -0.05, 22, 1.7], [-0.52, 0.12, 26, 2.3],
+  [0.36, 0.4, 32, 1.2], [-0.3, 0.44, 20, 0.5], [0.02, -0.52, 24, 2.8], [0.55, 0.3, 14, 3.3], [-0.58, -0.08, 14, 0.2],
+];
+
+function ToothShine({ innerRef }: { innerRef: React.RefObject<HTMLDivElement | null> }) {
+  return (
+    <div ref={innerRef} className="pointer-events-none absolute left-1/2 top-[42%] z-[6] h-0 w-0 opacity-0" style={{ ["--s" as string]: "min(85vw,64svh)" }} aria-hidden>
+      {SHINE.map(([x, y, z, d], i) => (
+        <Sparkle
+          key={i}
+          className="twinkle absolute -translate-x-1/2 -translate-y-1/2 text-white drop-shadow-[0_0_10px_rgba(255,255,255,.95)]"
+          style={{ left: "calc(var(--s) * " + x + ")", top: "calc(var(--s) * " + y + ")", width: z, height: z, animationDelay: "-" + d + "s" }}
+        />
+      ))}
     </div>
   );
 }

@@ -56,6 +56,17 @@ body {
 }
 .blob { animation: drift 14s ease-in-out infinite; will-change: transform; }
 
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -14px, 0); }
+}
+.float-slow { animation: float 7s ease-in-out infinite; will-change: transform; }
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+.twinkle { animation: twinkle 3.5s ease-in-out infinite; }
+
 @keyframes marquee {
   to { transform: translate3d(-50%, 0, 0); }
 }
@@ -68,6 +79,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .blob, .award-track { animation: none; }
+  .blob, .award-track, .float-slow, .twinkle { animation: none; }
   .morph-section { height: 100vh; }
 }
