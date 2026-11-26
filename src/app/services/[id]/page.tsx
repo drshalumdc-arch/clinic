@@ -55,7 +55,6 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
         </div>
 
         <div className="mt-10 space-y-5 text-lg leading-relaxed">
-          <p>{s.detail}</p>
           <p className="text-muted">{serviceMore[id]}</p>
         </div>
 

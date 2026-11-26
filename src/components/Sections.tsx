@@ -4,16 +4,16 @@ import Link from "next/link";
 import Reveal from "./Reveal";
 import { iconFor } from "@/lib/serviceIcons";
 import { BTN_GHOST, BTN_PRIMARY, Icon, SECTION, SectionHead } from "./ui";
-import { about, clinic, services, waLink, servicesIntro, stats } from "@/lib/content";
+import { about, clinic, contact, services, waLink, servicesIntro, stats, tourists } from "@/lib/content";
 
 export function Stats() {
   return (
     <section className="mx-auto max-w-5xl px-5 pb-8 pt-4 md:pb-16">
-      <div className="grid grid-cols-3 gap-3 rounded-[32px] border border-line bg-white p-6 text-center shadow-sm sm:p-10">
+      <div className="grid grid-cols-2 gap-6 rounded-[32px] border border-line bg-white p-6 text-center shadow-sm sm:p-10 md:grid-cols-4">
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={i * 80}>
-            <div className="text-3xl font-extrabold text-brand-dark sm:text-5xl">{s.value}</div>
-            <div className="mt-1 text-xs text-muted sm:text-sm">{s.label}</div>
+            <div className="text-4xl font-extrabold text-brand-dark sm:text-5xl">{s.value}</div>
+            <div className="mt-1 text-sm text-muted">{s.label}</div>
           </Reveal>
         ))}
       </div>
@@ -36,20 +36,47 @@ export function About() {
           </div>
         </Reveal>
         <div>
-          <Reveal><p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-brand-dark">About us</p></Reveal>
+          <Reveal><p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-brand-dark">{about.eyebrow}</p></Reveal>
           <Reveal as="h2" delay={60} className="text-balance text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">{about.title}</Reveal>
           {about.body.map((t, i) => (
             <Reveal as="p" key={i} className="mt-5 text-pretty text-lg leading-relaxed text-muted" delay={120 + i * 60}>{t}</Reveal>
           ))}
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          <Reveal as="blockquote" delay={200} className="mt-8 border-l-4 border-brand pl-5 text-lg font-semibold leading-relaxed">
+            &ldquo;{about.quote}&rdquo;
+            <footer className="mt-2 text-sm font-medium text-muted">{about.doctor.name}, {about.doctor.role}</footer>
+          </Reveal>
+        </div>
+      </div>
+      <div className="mt-16">
+        <Reveal as="h3" className="text-center text-2xl font-extrabold sm:text-3xl">{about.valuesTitle}</Reveal>
+        <div className="mt-8 grid gap-3 sm:grid-cols-3">
             {about.values.map((v, i) => (
-              <Reveal key={v.title} delay={240 + i * 80} className="rounded-2xl bg-mint p-4">
+              <Reveal key={v.title} delay={i * 80} className="rounded-2xl bg-mint p-5">
                 <div className="font-bold">{v.title}</div>
                 <div className="mt-1 text-sm leading-relaxed text-muted">{v.text}</div>
               </Reveal>
             ))}
-          </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+export function Tourists() {
+  return (
+    <section className="bg-ink text-white">
+      <div className={`${SECTION} mx-auto max-w-4xl`}>
+        <Reveal><p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-brand">{tourists.eyebrow}</p></Reveal>
+        <Reveal as="h2" delay={60} className="text-balance text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">{tourists.title}</Reveal>
+        {tourists.body.map((t, i) => (
+          <Reveal as="p" key={i} delay={120 + i * 60} className="mt-5 text-lg leading-relaxed text-white/75">{t}</Reveal>
+        ))}
+        <Reveal delay={300} className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6">
+          <p className="font-semibold">{tourists.cta}</p>
+          <a href={waLink(["I am visiting Kumily/Thekkady and need a dentist."])} target="_blank" rel="noreferrer" className="mt-4 inline-block rounded-full bg-[#25D366] px-5 py-2.5 font-semibold text-white transition-transform hover:scale-105">
+            WhatsApp us
+          </a>
+        </Reveal>
       </div>
     </section>
   );
@@ -94,7 +121,7 @@ export function Contact() {
   const input = "w-full rounded-2xl border border-line bg-white px-4 py-3.5 outline-none transition-shadow focus:ring-2 focus:ring-brand";
   return (
     <section id="contact" className={SECTION}>
-      <SectionHead eyebrow="Contact us" title="Schedule your complimentary consultation." intro="Send us your details and we will confirm your appointment on WhatsApp." />
+      <SectionHead eyebrow={contact.eyebrow} title={contact.title} intro={contact.intro} />
       <Reveal delay={150} className="mt-8 flex flex-wrap justify-center gap-3">
         <a href="#contact-form" className={BTN_PRIMARY}>Request appointment</a>
         <a href={`tel:${clinic.phone.replace(/[^+\d]/g, "")}`} className={BTN_GHOST}>Call {clinic.phone}</a>
@@ -146,6 +173,11 @@ export function Contact() {
                 <li key={d} className="flex justify-between gap-4"><span>{d}</span><span>{t}</span></li>
               ))}
             </ul>
+            <div className="mt-6 space-y-1 border-t border-white/10 pt-4 text-sm text-white/80">
+              <p>{clinic.name}, {clinic.address}</p>
+              <p>Phone &amp; WhatsApp: <a href={`tel:${clinic.phone.replace(/[^+\d]/g, "")}`} className="font-semibold text-white">{clinic.phone}</a></p>
+              <p>Email: <a href={`mailto:${clinic.email}`} className="font-semibold text-white">{clinic.email}</a></p>
+            </div>
             <a href={waLink()} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full bg-[#25D366] px-5 py-2.5 font-semibold text-white transition-transform hover:scale-105">
               Chat on WhatsApp
             </a>
@@ -162,7 +194,7 @@ export function Contact() {
           </Reveal>
         </div>
       </div>
-
+      <p className="mt-12 text-center text-muted">{contact.tagline}</p>
     </section>
   );
 }
@@ -179,7 +211,7 @@ export function Footer() {
             <img src="/logo-mark.png" alt="" width={48} height={48} className="h-12 w-12 shrink-0 rounded-full bg-white" />
             {clinic.name}
           </div>
-          <p className="mt-4 text-sm leading-relaxed text-white/65">Gentle, modern dentistry for the whole family.</p>
+          <p className="mt-4 text-sm leading-relaxed text-white/65">A friendly dental clinic in Vandanmedu, caring for families and visitors near Kumily.</p>
         </div>
         <div>
           <h4 className={head}>Explore</h4>
@@ -201,6 +233,7 @@ export function Footer() {
             <li>{clinic.address}</li>
             <li>{clinic.phone}</li>
             <li>{clinic.email}</li>
+            {clinic.hours.map(([d, t]) => <li key={d}>{d}: {t}</li>)}
           </ul>
         </div>
       </div>

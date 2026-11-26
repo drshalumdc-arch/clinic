@@ -1,12 +1,11 @@
-// All dummy content lives here — edit freely.
+// All site content lives here. Source: "Dr Shalu's Dental Clinic Website Content" PDF.
 export const clinic = {
   name: "Dr Shalu's Multispeciality Dental Clinic",
   phone: "+91 97781 10545",
   whatsapp: "919778110545",
   email: "drshalumdc@gmail.com",
-  address: "Chettukuzhi, Vandanmedu, Kerala 685551",
-  // Dummy map location — replace with the real clinic address.
-  mapQuery: "Dr Shalu's Multi-speciality Dental Clinic, Chettukuzhi, Vandanmedu, Kerala 685551",
+  address: "Chettukuzhi, Vandanmedu, Idukki, Kerala 685551",
+  mapQuery: "Dr Shalu's Multi-speciality Dental Clinic, Chettukuzhi, Vandanmedu, Idukki, Kerala 685551",
   mapLink: "https://share.google/Sa64buiw9PIXH5T2Z",
   hours: [
     ["Mon – Fri", "9:00 am – 7:00 pm"],
@@ -14,146 +13,172 @@ export const clinic = {
     ["Sunday", "Closed"],
   ],
   // Put a short MP4 in /public/videos and set e.g. "/videos/hero.mp4".
-  // Leave empty to use the animated placeholder art.
   heroVideo: "/videos/hero.mp4",
   heroPoster: "/videos/hero-poster.jpg",
 };
 
+export const seo = {
+  title: "Dental Clinic in Vandanmedu, Near Kumily | Dr Shalu's Dental",
+  description:
+    "Looking for a gentle dentist near Kumily? Dr Shalu's Dental Clinic in Vandanmedu offers check-ups, root canals, implants, braces and emergency care. Call today.",
+};
+
 export const hero = {
-  title: "Smiles made gentle.",
-  sub: "Calm, comfortable dentistry for the whole family.",
+  title: "A Dental Clinic in Vandanmedu Where You'll Feel at Ease",
+  sub: "Your neighbourhood dentist in Vandanmedu, just a short drive from Kumily. Gentle, honest dental care for families and visitors to Kumily and Thekkady.",
   captions: [
-    "Gentle care, from the first hello.",
-    "Modern technology, zero stress.",
-    "Bright smiles that last.",
+    "We go slow. We explain every step.",
+    "You'll know the cost before we start.",
+    "Open Monday to Saturday.",
   ],
 };
 
 export const stats = [
-  { value: "15+", label: "Years of care" },
-  { value: "12k", label: "Happy patients" },
-  { value: "4.9", label: "Average rating" },
+  { value: "800+", label: "Patients treated" },
+  { value: "5+", label: "Years of experience" },
+  { value: "30+", label: "Years combined team experience" },
+  { value: "18", label: "Dental treatments under one roof" },
 ];
 
 export const about = {
-  title: "A dental clinic that feels like a friendly welcome.",
+  eyebrow: "Meet Dr. Shalu",
+  title: "Meet Dr. Shalu, Your Dentist in Vandanmedu",
   body: [
-    "Dr Shalu's Multispeciality Dental Clinic was founded with one idea: dental visits should be calm, clear and comfortable. Our team takes the time to explain every step, so you always know what to expect.",
-    "From routine check-ups to complete smile makeovers, we combine modern equipment with a gentle touch for results you can feel confident about.",
+    "Hi, I'm Dr. Shalu. I know most people don't look forward to seeing a dentist. That's okay. My job is to make the visit as easy as I can.",
+    "I'm a BDS graduate, and I've been treating patients for over 5 years. In that time I've looked after more than 800 people, from tiny kids on their very first visit to grandparents getting new dentures.",
+    "Children and nervous patients are especially close to my heart. If your little one is scared, or you are, we'll take it slow. We'll talk first, show you everything, and only start when you're ready.",
+    "When you come in, I'll listen first. I'll tell you what I see, what your options are and what each one costs. Then you decide. No pressure, and no treatment you don't need.",
+    "I speak Malayalam, English and Tamil, so you can tell me what's bothering you in whichever language feels easiest.",
   ],
-  doctor: { name: "Dr. Shalu", role: "Founder & Lead Dentist" },
+  quote: "Every smile deserves kind care, personal attention and the best treatment I can give.",
+  doctor: { name: "Dr. Shalu", role: "BDS, Chief Dental Surgeon" },
+  valuesTitle: "How We Look After You",
   values: [
-    { title: "Gentle", text: "Pain-free techniques and a patient-first approach." },
-    { title: "Transparent", text: "Clear plans and honest pricing, no surprises." },
-    { title: "Modern", text: "Digital imaging and the latest safe technology." },
+    { title: "We go slow.", text: "If you're nervous, tell us. We'll explain each step and stop whenever you need a break." },
+    { title: "We're upfront.", text: "You'll know the cost before we start. If something can wait, we'll tell you that too." },
+    { title: "We keep it clean.", text: "Instruments are sterilised after every patient. Always." },
   ],
 };
 
 export const services = [
-  { id: "xray", title: "Digital X-ray", short: "Instant, low-radiation images for accurate diagnosis.", detail: "Digital X-rays give a clear view of teeth, roots and bone with far less radiation than film, so we can plan your treatment precisely." },
-  { id: "whitening", title: "Teeth Whitening", short: "Safe, visible results in a single comfortable visit.", detail: "Professional whitening brightens teeth several shades with gentle gels and protective care for your gums." },
-  { id: "checkups", title: "Checkups", short: "Regular exams to catch problems early.", detail: "A thorough exam of your teeth, gums and mouth, with clear advice to keep your smile healthy." },
-  { id: "implants", title: "Dental Implants", short: "Natural-looking replacements that feel like your own teeth.", detail: "Implants restore chewing strength and appearance, with careful planning at every stage of healing." },
-  { id: "dentures", title: "Dentures & Bridges", short: "Comfortable replacements for missing teeth.", detail: "Custom-made dentures and bridges that restore your smile, speech and ability to eat with confidence." },
-  { id: "emergency", title: "Emergency Care", short: "Prompt help for pain, swelling or broken teeth.", detail: "Call us right away if you have severe pain, a broken tooth or swelling. We will see you as quickly as possible." },
-  { id: "extractions", title: "Extractions", short: "Gentle, comfortable tooth removal when needed.", detail: "When a tooth cannot be saved, we remove it gently and guide you through aftercare and replacement options." },
-  { id: "fillings", title: "Fillings", short: "Restore decayed teeth with natural-looking fillings.", detail: "Tooth-coloured fillings repair cavities and blend in with your natural teeth." },
-  { id: "mouthguards", title: "Mouth Guards", short: "Custom guards for sports and night-time grinding.", detail: "Custom-fitted mouth guards protect your teeth during sports or while you sleep." },
-  { id: "oralsurgery", title: "Oral Surgery", short: "Safe surgical care for complex dental needs.", detail: "From impacted wisdom teeth to minor oral surgical procedures, performed with comfort and safety in mind." },
-  { id: "kids", title: "Pediatric Dentistry", short: "A fun, friendly first dental experience for little smiles.", detail: "Our child-friendly approach makes visits playful, focusing on prevention and healthy habits from an early age." },
-  { id: "rootcanal", title: "Root Canal Treatment", short: "Relieve pain and save your natural tooth.", detail: "Modern root canal therapy removes infection, seals the tooth and protects it for the long term." },
-  { id: "cleaning", title: "Teeth Cleaning", short: "Professional scaling and polishing for a fresh, healthy mouth.", detail: "A thorough cleaning removes plaque and tartar that brushing cannot reach, leaving your mouth fresh and healthy." },
-  { id: "veneers", title: "Veneers", short: "Thin shells that transform the look of your teeth.", detail: "Veneers correct shape, colour and minor gaps for a natural, even smile." },
-  { id: "crowns", title: "Crowns", short: "Strong caps that protect and restore damaged teeth.", detail: "Crowns restore the shape, strength and appearance of a weak or broken tooth." },
-  { id: "aligners", title: "Invisible Aligners", short: "Straighter teeth with nearly invisible trays.", detail: "Clear aligners gently straighten your teeth discreetly, without metal brackets or wires." },
-  { id: "ortho", title: "Orthodontic Treatment", short: "Braces and plans for a well-aligned bite.", detail: "We design an orthodontic plan that fits your needs, correcting crowding, gaps and bite problems." },
-  { id: "smile", title: "Smile Designing", short: "A customised plan for the smile you have always wanted.", detail: "We combine treatments such as whitening, veneers and alignment to design a smile that suits your face." },
+  { id: "xray", title: "Digital X-ray", short: "Quick, clear pictures of your teeth on a screen, with much less radiation than old X-rays." },
+  { id: "whitening", title: "Teeth Whitening", short: "Years of tea and coffee stains? We can lighten them safely, under a dentist's eye." },
+  { id: "checkups", title: "Dental Check-ups", short: "A quick look every six months catches small problems before they start to hurt." },
+  { id: "implants", title: "Dental Implants", short: "Lost a tooth? An implant replaces it for good, and it looks and feels like your own." },
+  { id: "dentures", title: "Dentures and Bridges", short: "Missing a few teeth? We'll make something that fits well, so you can eat and smile comfortably." },
+  { id: "emergency", title: "Emergency Dental Care", short: "In sudden pain, or broke a tooth? Call us. We'll try to see you the same day, whether you live nearby or you're visiting Kumily." },
+  { id: "extractions", title: "Tooth Extraction", short: "Sometimes a tooth has to come out. We do it gently and tell you exactly how to look after it." },
+  { id: "fillings", title: "Tooth Fillings", short: "Tooth-coloured fillings, so nobody can tell you've had one." },
+  { id: "mouthguards", title: "Mouth Guards", short: "Made to fit your mouth, for sports or for grinding your teeth at night." },
+  { id: "oralsurgery", title: "Oral Surgery", short: "Small surgeries done carefully, with clear instructions and follow-up afterwards." },
+  { id: "kids", title: "Children's Dentistry", short: "Kids' visits that are calm and even a bit fun, so they grow up without the fear." },
+  { id: "rootcanal", title: "Root Canal Treatment", short: "It's not as scary as it sounds. A root canal stops the pain and saves your tooth." },
+  { id: "cleaning", title: "Teeth Cleaning", short: "A proper clean removes what brushing misses. Your gums will thank you." },
+  { id: "veneers", title: "Veneers", short: "Thin covers for chipped, gapped or stained front teeth." },
+  { id: "crowns", title: "Dental Crowns", short: "A cap that protects a weak or broken tooth and makes it strong again." },
+  { id: "aligners", title: "Invisible Aligners", short: "Clear trays that straighten your teeth slowly. No wires, and most people won't notice." },
+  { id: "ortho", title: "Braces and Orthodontic Treatment", short: "Braces for crooked teeth or a bad bite, for kids and adults." },
+  { id: "smile", title: "Smile Designing", short: "Not happy with your smile? Tell us what bothers you, and we'll plan how to fix it." },
 ];
 
 export const why = {
   eyebrow: "Why choose us",
-  title: "Why families choose Dr Shalu's.",
-  intro: "Little things add up to a dental visit you will actually look forward to.",
+  title: "Why Families Choose Our Dental Clinic in Vandanmedu",
+  intro: "Over 800 patients have trusted us with their smiles. If you're looking for the best dental clinic near Kumily, come and meet us.",
   items: [
-    { icon: "heart", title: "Gentle, pain-free care" },
-    { icon: "clock", title: "Same-week appointments" },
-    { icon: "shield", title: "Strict hygiene standards" },
-    { icon: "users", title: "Family-friendly team" },
-    { icon: "card", title: "Clear, upfront pricing" },
-    { icon: "spark", title: "Latest digital technology" },
-    { icon: "calendar", title: "Evening & Saturday hours" },
-    { icon: "star", title: "4.9 star patient reviews" },
-  ],
-};
-
-export const stages = {
-  eyebrow: "For every age",
-  title: "Dental care for every stage of life.",
-  intro: "One clinic for the whole family — from the first tooth to the last smile makeover.",
-  items: [
-    { label: "Children", text: "Playful check-ups, sealants and fluoride that build confident, cavity-free habits early.", tag: "Ages 1–12" },
-    { label: "Teens", text: "Braces and clear aligners, sports mouthguards and guidance through the wisdom-tooth years.", tag: "Ages 13–19" },
-    { label: "Adults", text: "Cleanings, whitening, implants and restorative work, planned around your busy schedule.", tag: "Ages 20+" },
-  ],
-};
-
-export const tech = {
-  eyebrow: "Technology",
-  title: "Advanced technology for better, calmer care.",
-  intro: "Modern tools mean faster visits, more accurate results and far less discomfort.",
-  points: [
-    ["3D digital X-rays", "Up to 90% less radiation with instant, detailed images."],
-    ["Intraoral scanners", "No messy impressions — a quick, comfortable 3D scan."],
-    ["Laser dentistry", "Gentle treatment of gums with faster healing."],
-    ["Same-day crowns", "Designed and made in our clinic in a single visit."],
-    ["Digital smile preview", "See your future smile before treatment begins."],
+    { icon: "heart", title: "A dentist kids actually like", text: "Dr. Shalu is gentle and patient, and especially good with children and nervous patients." },
+    { icon: "users", title: "Talk in your own language", text: "We speak Malayalam, English and Tamil." },
+    { icon: "clock", title: "You don't have to travel far", text: "Most treatments, from cleaning to implants, are done right here. No trips to Kattappana or Theni." },
+    { icon: "star", title: "An experienced team", text: "Dr. Shalu works with an Oral Pathology specialist (10 years) and a dentist with 15 years of experience." },
+    { icon: "card", title: "You'll know the cost first", text: "We tell you the price before we begin. No hidden extras on the bill." },
+    { icon: "calendar", title: "We're open when you're free", text: "Weekdays till 7 pm and Saturday mornings, so you don't have to take a day off." },
+    { icon: "check", title: "Booking is easy", text: "Just call or send a WhatsApp message. That's it." },
   ],
 };
 
 export const team = {
   eyebrow: "Our team",
-  title: "Meet your dentists.",
-  intro: "Experienced, friendly specialists who take time to listen.",
+  title: "The Team Behind Your Smile",
+  intro: "I'm not doing this alone. Two family members with many years in dentistry work alongside me.",
   people: [
-    { name: "Dr. Emily Carter", role: "Lead Dentist, DDS", note: "Cosmetic & family dentistry", skin: "#f0c4a2", hair: "#3b2a22", top: "#2bb7b0" },
-    { name: "Dr. Daniel Reyes", role: "Orthodontist, DMD", note: "Braces & clear aligners", skin: "#d9a07c", hair: "#1c1511", top: "#1a8f89" },
-    { name: "Dr. Priya Shah", role: "Implant Specialist, BDS", note: "Implants & restorative care", skin: "#c68a63", hair: "#120d0a", top: "#2bb7b0" },
+    { role: "Dr. Shalu, BDS", relation: "Chief Dental Surgeon", years: "5+", note: "Over 800 patients treated, with a special focus on children and nervous patients." },
+    { role: "Dr. Shilpa Soman", relation: "Oral Pathologist · Dr. Shalu's sister", years: "10", note: "Helps us find the cause of problems like mouth ulcers, patches and unusual swellings, and catch them early." },
+    { role: "Dr. Ragesh", relation: "Senior Dentist · Dr. Shalu's brother-in-law", years: "15", note: "That experience helps a lot with more complex cases." },
+  ],
+  footer: "Between the three of us, that's over 30 years of looking after smiles.",
+};
+
+export const tourists = {
+  eyebrow: "Visiting Kumily?",
+  title: "On Holiday in Kumily and Need a Dentist?",
+  body: [
+    "Tooth pain on a trip is the worst. If you're staying in Kumily or Thekkady and something goes wrong, like a broken tooth, a lost filling or a swollen gum, give us a call. We're a short drive away in Vandanmedu, and we'll do our best to see you the same day.",
+    "We'll fix what's hurting and tell you clearly what was done. If you need more treatment later, we'll write it down so you can show your dentist back home.",
+    "We speak English, Malayalam and Tamil, so explaining what's wrong is easy, wherever you're from.",
+  ],
+  cta: "Need a dentist near Kumily today? WhatsApp us on +91 97781 10545, and we'll tell you the earliest time we can see you.",
+};
+
+export const stages = {
+  eyebrow: "For every age",
+  title: "Dental Care for the Whole Family",
+  intro: "",
+  items: [
+    { label: "For Little Ones", text: "The first visit is mostly about getting comfortable. We show them the chair, count their teeth and keep it fun. If they need a filling later, they already know us.", tag: "Ages 1–12" },
+    { label: "For Teenagers", text: "Braces, clear aligners, mouth guards for sports and wisdom tooth checks. We talk to them directly, not just to their parents.", tag: "Ages 13–19" },
+    { label: "For Adults", text: "Cleaning, root canals, crowns, implants and dentures. We plan treatment around your work and your budget, one step at a time.", tag: "Ages 20+" },
   ],
 };
 
-export const awards = [
-  "Top Dentist 2025", "ADA Member", "Invisalign Diamond Provider", "5-Star Google Rating",
-  "Board Certified", "Family Choice Award", "Digital Dentistry Certified",
-];
+export const tech = {
+  eyebrow: "Equipment",
+  title: "Modern Equipment for Comfortable Treatment",
+  intro: "Our clinic has modern dental equipment, so treatment is quicker, more comfortable and more reliable for you.",
+  points: [
+    ["Digital X-ray", "You see the picture on screen within seconds, and we explain what it shows."],
+    ["Modern treatment equipment", "Up-to-date tools for root canals, fillings, cleaning and more, which means less time in the chair."],
+    ["Proper sterilisation", "Every instrument is cleaned and sterilised after each patient, with fresh disposables every time."],
+  ],
+};
 
+// Patient before/after photos are NOT in the PDF. Add pairs here and the section appears.
+// Example: { before: "/smiles/1-before.jpg", after: "/smiles/1-after.jpg", caption: "Teeth whitening" }
 export const beforeAfter = {
   eyebrow: "Results",
-  title: "See the difference.",
-  intro: "Drag the handle to compare a typical whitening and smile-care result. (Dummy illustration.)",
+  title: "Some of Our Patients' Smiles",
+  intro: "Slide to see the change. These are real patients, shared with their permission. Every mouth is different, so your results may vary.",
+  pairs: [] as { before: string; after: string; caption?: string }[],
 };
 
 export const faqs = {
   eyebrow: "FAQ",
-  title: "Questions we hear often.",
+  title: "Questions People Often Ask Us",
   items: [
-    ["How often should I visit the dentist?", "Most people benefit from a check-up and cleaning every six months. If you have gum disease or other conditions, we may suggest more frequent visits."],
-    ["Is teeth whitening safe?", "Yes. Professional whitening is supervised by a dentist, uses protective gels for your gums and is far gentler than many over-the-counter kits."],
-    ["Do you treat children and anxious patients?", "Absolutely. We take extra time, explain every step and use gentle techniques so nervous patients and kids feel at ease."],
-    ["How much will treatment cost?", "We give a clear written estimate before any treatment starts. We also offer flexible payment plans and accept most major insurance."],
-    ["What should I do in a dental emergency?", "Call us right away. We keep same-day slots free for emergencies such as severe pain, broken teeth or swelling."],
+    ["Where is Dr Shalu's Dental Clinic?", "We're at Chettukuzhi, Vandanmedu, Idukki, Kerala 685551. If you're coming from Kumily or Thekkady, it's a short drive."],
+    ["I'm visiting Kumily and my tooth hurts. Can you see me today?", "Most likely, yes. Call or WhatsApp us on +91 97781 10545 and we'll give you the earliest slot we have."],
+    ["How often should I get my teeth checked?", "Once every six months is right for most people. If you have gum problems, we might ask you to come a bit more often."],
+    ["Does teeth whitening damage your teeth?", "No, not when a dentist does it. We check your teeth first to make sure whitening is a good idea for you."],
+    ["I get really nervous at the dentist. What can I do?", "Just tell us when you come in. Lots of people feel the same way. We'll go slowly, explain what we're doing, and stop whenever you raise your hand."],
+    ["How much will my dental treatment cost?", "It depends on what you need. After the check-up, we'll tell you the cost of each option before we start anything."],
+    ["What should I do in a dental emergency?", "Call or WhatsApp us straight away on +91 97781 10545. If there's bad pain, swelling or a knocked-out tooth, we'll see you as soon as we can."],
+    ["From what age can children see a dentist?", "From age 1. An early first visit helps kids get used to the dentist before there's ever a problem."],
+    ["Is there a lady dentist at the clinic?", "Yes. Dr. Shalu, our Chief Dental Surgeon, is a female dentist. Many people, especially mothers, children and women, find that puts them more at ease."],
+    ["Which languages do you speak?", "Malayalam, English and Tamil. So whether you're from Vandanmedu, from across the border in Tamil Nadu, or visiting Kumily from elsewhere, you can talk to us easily."],
+    ["Why do people call Dr. Shalu the best dentist in Vandanmedu?", "We'd rather let our patients answer that! Over 800 people have trusted Dr. Shalu with their teeth in the last 5+ years. She's gentle, she explains everything clearly, and she's especially good with kids and nervous patients. With an Oral Pathology specialist and a dentist with 15 years' experience on the team, you're in good hands."],
   ] as [string, string][],
 };
 
-export const offices = [
-  { city: "Springfield", address: "128 Maple Street", phone: "+1 (555) 012-3456" },
-  { city: "Riverside", address: "42 Harbor Avenue", phone: "+1 (555) 012-7788" },
-  { city: "Hillcrest", address: "9 Orchard Road", phone: "+1 (555) 012-9021" },
-];
+export const contact = {
+  eyebrow: "Contact us",
+  title: "Book Your Visit at Our Dental Clinic in Vandanmedu",
+  intro: "The easiest way is to WhatsApp or call us. You can also fill in the form, and we'll call you back to fix a time. We're a short drive from Kumily and Thekkady.",
+  tagline: "Dr Shalu's Multispeciality Dental Clinic is a friendly dental clinic in Vandanmedu, caring for families and visitors near Kumily.",
+};
 
 export const servicesIntro = {
-  eyebrow: "Services",
-  title: "Everything your smile needs.",
-  intro: "Complete family dentistry under one roof — gentle, modern and clearly explained.",
+  eyebrow: "Our treatments",
+  title: "Our Dental Treatments",
+  intro: "From a simple check-up to a full smile makeover, here's what we can help you with at our clinic in Vandanmedu.",
 };
 
 // Longer explanation shown on each service's own page.

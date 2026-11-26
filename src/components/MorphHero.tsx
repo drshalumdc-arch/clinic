@@ -215,10 +215,10 @@ export default function MorphHero() {
           ref={intro}
           className="absolute inset-x-0 top-[max(6.5rem,14svh)] z-10 mx-auto max-w-4xl px-6 text-center will-change-transform"
         >
-          <h1 className="text-[clamp(2.4rem,min(9vw,10.5svh),6.5rem)] font-extrabold leading-[1.02] tracking-tight">
+          <h1 className="text-[clamp(1.9rem,min(6vw,7svh),4.5rem)] font-extrabold leading-[1.02] tracking-tight">
             {hero.title}
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-base text-muted sm:text-lg">{hero.sub}</p>
+          <p className="mx-auto mt-5 max-w-2xl text-base text-muted sm:text-lg">{hero.sub}</p>
           <div className="mt-8 flex justify-center gap-3">
             <a href="#contact" className="rounded-full bg-brand px-6 py-3 font-semibold text-white shadow-lg shadow-brand/30 transition-transform hover:scale-105">
               Book appointment

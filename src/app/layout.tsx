@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { seo } from "@/lib/content";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -9,9 +10,8 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Dr Shalu's Multispeciality Dental Clinic — Gentle, modern dental care",
-  description:
-    "Dr Shalu's Multispeciality Dental Clinic offers gentle, modern dentistry for the whole family. Book your appointment today.",
+  title: seo.title,
+  description: seo.description,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
