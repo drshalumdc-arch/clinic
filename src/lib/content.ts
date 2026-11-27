@@ -2,6 +2,7 @@
 export const clinic = {
   name: "Dr Shalu's Multispeciality Dental Clinic",
   phone: "+91 97781 10545",
+  phone2: "+91 90747 97099",
   whatsapp: "919778110545",
   email: "drshalumdc@gmail.com",
   address: "Chettukuzhi, Vandanmedu, Idukki, Kerala 685551",

@@ -176,6 +176,7 @@ export function Contact() {
             <div className="mt-6 space-y-1 border-t border-white/10 pt-4 text-sm text-white/80">
               <p>{clinic.name}, {clinic.address}</p>
               <p>Phone &amp; WhatsApp: <a href={`tel:${clinic.phone.replace(/[^+\d]/g, "")}`} className="font-semibold text-white">{clinic.phone}</a></p>
+              <p>Phone: <a href={`tel:${clinic.phone2.replace(/[^+\d]/g, "")}`} className="font-semibold text-white">{clinic.phone2}</a></p>
               <p>Email: <a href={`mailto:${clinic.email}`} className="font-semibold text-white">{clinic.email}</a></p>
             </div>
             <a href={waLink()} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full bg-[#25D366] px-5 py-2.5 font-semibold text-white transition-transform hover:scale-105">
@@ -232,6 +233,7 @@ export function Footer() {
           <ul className={col}>
             <li>{clinic.address}</li>
             <li>{clinic.phone}</li>
+            <li>{clinic.phone2}</li>
             <li>{clinic.email}</li>
             {clinic.hours.map(([d, t]) => <li key={d}>{d}: {t}</li>)}
           </ul>
