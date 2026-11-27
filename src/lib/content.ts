@@ -8,9 +8,8 @@ export const clinic = {
   mapQuery: "Dr Shalu's Multi-speciality Dental Clinic, Chettukuzhi, Vandanmedu, Idukki, Kerala 685551",
   mapLink: "https://share.google/Sa64buiw9PIXH5T2Z",
   hours: [
-    ["Mon – Fri", "9:00 am – 7:00 pm"],
-    ["Saturday", "9:00 am – 3:00 pm"],
-    ["Sunday", "Closed"],
+    ["Mon – Sat", "9:00 am – 6:00 pm"],
+    ["Sunday", "10:00 am – 3:00 pm"],
   ],
   // Put a short MP4 in /public/videos and set e.g. "/videos/hero.mp4".
   heroVideo: "/videos/hero.mp4",
@@ -24,12 +23,12 @@ export const seo = {
 };
 
 export const hero = {
-  title: "A Dental Clinic in Vandanmedu Where You'll Feel at Ease",
+  title: "Gentle Dentistry for Every Family in Vandanmedu",
   sub: "Your neighbourhood dentist in Vandanmedu, just a short drive from Kumily. Gentle, honest dental care for families and visitors to Kumily and Thekkady.",
   captions: [
     "We go slow. We explain every step.",
     "You'll know the cost before we start.",
-    "Open Monday to Saturday.",
+    "Open six days a week, and Sundays too.",
   ],
 };
 
